@@ -1,2 +1,2 @@
 # BeansBot
-BeansBot is a Discord bot that beans
+Repository for my bot BeansBot
