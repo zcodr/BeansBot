@@ -75,7 +75,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		if rareness <= 100 {
 			filename = "Words/rare.txt"
 		}
-		if rareness <= 25 {
+		if rareness <= 1 {
 			filename = "Words/ultimate.txt"
 		}
 
@@ -86,7 +86,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		for filescanner.Scan() {
 			filelines = append(filelines, filescanner.Text())
 		}
-		s.ChannelMessageSend(m.ChannelID, filelines[rand.Intn(399)+1]+" beans")
+		s.ChannelMessageSend(m.ChannelID, filelines[rand.Intn(len(filelines))]+" beans")
 		file.Close()
 	}
 }
