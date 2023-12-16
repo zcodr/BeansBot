@@ -67,12 +67,19 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	tokens := strings.Split(m.Content, " ")
 
 	if tokens[0] == "/beans" {
-		// rareness := rand.Intn(10000) + 1
-		// if rareness <= 500 {
+		filename := "Words/common.txt"
+		rareness := rand.Intn(10000) + 1
+		if rareness <= 500 {
+			filename = "Words/uncommon.txt"
+		}
+		if rareness <= 100 {
+			filename = "Words/rare.txt"
+		}
+		if rareness <= 25 {
+			filename = "Words/ultimate.txt"
+		}
 
-		// }
-
-		file, _ := os.Open("Words/common.txt")
+		file, _ := os.Open(filename)
 		filescanner := bufio.NewScanner(file)
 		filescanner.Split(bufio.ScanLines)
 		var filelines []string
