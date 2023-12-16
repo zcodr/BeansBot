@@ -67,15 +67,19 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	tokens := strings.Split(m.Content, " ")
 
 	if tokens[0] == "/beans" {
+		congrats_message := ""
 		filename := "Words/common.txt"
 		rareness := rand.Intn(10000) + 1
 		if rareness <= 500 {
+			congrats_message = ":bell: :partying_face: YOU GOT AN **UNCOMMON** BEAN :partying_face: :bell:"
 			filename = "Words/uncommon.txt"
 		}
 		if rareness <= 100 {
+			congrats_message = ":bell::bell::bell: :partying_face: :partying_face: :partying_face: :tada: :tada: :tada: YOU GOT A **RARE** BEAN :tada: :tada: :tada: :partying_face: :partying_face: :partying_face: :bell::bell::bell:"
 			filename = "Words/rare.txt"
 		}
 		if rareness <= 1 {
+			congrats_message = ":bell: :bell: :bell: :bell: :bell: :partying_face: :partying_face: :partying_face: :partying_face: :partying_face: :tada: :tada: :tada: :tada: :tada: :bell: :bell: :bell: :bell: :bell: :partying_face: :partying_face: :partying_face: :partying_face: :partying_face: :tada: :tada: :tada: :tada: :tada: :bell: :bell: :bell: :bell: :bell: :partying_face: :partying_face: :partying_face: :partying_face: :partying_face: :tada: :tada: :tada: :tada: :tada:   :regional_indicator_y: :regional_indicator_o: :regional_indicator_u:    :regional_indicator_g: :regional_indicator_o: :regional_indicator_t:    :regional_indicator_a: :regional_indicator_n:    :regional_indicator_u: :regional_indicator_l: :regional_indicator_t: :regional_indicator_i: :regional_indicator_m: :regional_indicator_a: :regional_indicator_t: :regional_indicator_e:    :regional_indicator_b: :regional_indicator_e: :regional_indicator_a: :regional_indicator_n:   :tada: :tada: :tada: :tada: :tada: :bell: :bell: :bell: :bell: :bell: :partying_face: :partying_face: :partying_face: :partying_face: :partying_face: :tada: :tada: :tada: :tada: :tada: :bell: :bell: :bell: :bell: :bell: :partying_face: :partying_face: :partying_face: :partying_face: :partying_face: :tada: :tada: :tada: :tada: :tada::bell: :bell: :bell: :bell: :bell: :partying_face: :partying_face: :partying_face: :partying_face: :partying_face:"
 			filename = "Words/ultimate.txt"
 		}
 
@@ -86,7 +90,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		for filescanner.Scan() {
 			filelines = append(filelines, filescanner.Text())
 		}
-		s.ChannelMessageSend(m.ChannelID, filelines[rand.Intn(len(filelines))]+" beans")
+		s.ChannelMessageSend(m.ChannelID, congrats_message+filelines[rand.Intn(len(filelines))]+" beans")
 		file.Close()
 	}
 }
