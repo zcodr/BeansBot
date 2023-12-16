@@ -70,16 +70,16 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		congrats_message := ""
 		filename := "Words/common.txt"
 		rareness := rand.Intn(10000) + 1
-		if rareness <= 500 {
-			congrats_message = ":bell: :partying_face: YOU GOT AN **UNCOMMON** BEAN :partying_face: :bell:"
+		if rareness <= 100 {
+			congrats_message = ":bell: :partying_face: YOU GOT AN **UNCOMMON** BEAN :partying_face: :bell:\n\n"
 			filename = "Words/uncommon.txt"
 		}
-		if rareness <= 100 {
-			congrats_message = ":bell::bell::bell: :partying_face: :partying_face: :partying_face: :tada: :tada: :tada: YOU GOT A **RARE** BEAN :tada: :tada: :tada: :partying_face: :partying_face: :partying_face: :bell::bell::bell:"
+		if rareness <= 10 {
+			congrats_message = ":bell::bell::bell: :partying_face: :partying_face: :partying_face: :tada: :tada: :tada: YOU GOT A **RARE** BEAN :tada: :tada: :tada: :partying_face: :partying_face: :partying_face: :bell::bell::bell:\n\n"
 			filename = "Words/rare.txt"
 		}
 		if rareness <= 1 {
-			congrats_message = ":bell: :bell: :bell: :bell: :bell: :partying_face: :partying_face: :partying_face: :partying_face: :partying_face: :tada: :tada: :tada: :tada: :tada: :bell: :bell: :bell: :bell: :bell: :partying_face: :partying_face: :partying_face: :partying_face: :partying_face: :tada: :tada: :tada: :tada: :tada: :bell: :bell: :bell: :bell: :bell: :partying_face: :partying_face: :partying_face: :partying_face: :partying_face: :tada: :tada: :tada: :tada: :tada:   :regional_indicator_y: :regional_indicator_o: :regional_indicator_u:    :regional_indicator_g: :regional_indicator_o: :regional_indicator_t:    :regional_indicator_a: :regional_indicator_n:    :regional_indicator_u: :regional_indicator_l: :regional_indicator_t: :regional_indicator_i: :regional_indicator_m: :regional_indicator_a: :regional_indicator_t: :regional_indicator_e:    :regional_indicator_b: :regional_indicator_e: :regional_indicator_a: :regional_indicator_n:   :tada: :tada: :tada: :tada: :tada: :bell: :bell: :bell: :bell: :bell: :partying_face: :partying_face: :partying_face: :partying_face: :partying_face: :tada: :tada: :tada: :tada: :tada: :bell: :bell: :bell: :bell: :bell: :partying_face: :partying_face: :partying_face: :partying_face: :partying_face: :tada: :tada: :tada: :tada: :tada::bell: :bell: :bell: :bell: :bell: :partying_face: :partying_face: :partying_face: :partying_face: :partying_face:"
+			congrats_message = ":bell: :bell: :bell:  :partying_face: :partying_face: :partying_face:  :tada: :tada: :tada:  :regional_indicator_y: :regional_indicator_o: :regional_indicator_u:    :regional_indicator_g: :regional_indicator_o: :regional_indicator_t:    :regional_indicator_a: :regional_indicator_n:    :regional_indicator_u: :regional_indicator_l: :regional_indicator_t: :regional_indicator_i: :regional_indicator_m: :regional_indicator_a: :regional_indicator_t: :regional_indicator_e:    :regional_indicator_b: :regional_indicator_e: :regional_indicator_a: :regional_indicator_n:  :bell: :bell: :bell:  :partying_face: :partying_face: :partying_face:  :tada: :tada: :tada: \n\n"
 			filename = "Words/ultimate.txt"
 		}
 
